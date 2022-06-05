@@ -47,6 +47,7 @@ jobs:
           coverage erase
           coverage run manage.py test
           coverage report
+          coverage xml
       - name: "Upload coverage to Codecov"
         uses: codecov/codecov-action@v2
         with:
