@@ -1,0 +1,61 @@
+name: Main
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12.3
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install Python dependencies
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+          . $HOME/.poetry/env
+          python -m venv venv
+          . ./venv/bin/activate
+          poetry install
+      - name: Check for missing migrations
+        run: |
+          . ./venv/bin/activate
+          python manage.py makemigrations --check --noinput
+      - name: Django system checks
+        run: |
+          . ./venv/bin/activate
+          python manage.py check
+      - name: Test
+        run: |
+          . ./venv/bin/activate
+          coverage erase
+          coverage run manage.py test
+          coverage report
+      - name: "Upload coverage to Codecov"
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
+          #token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      RECAPTCHA_PUBLIC_KEY: fake
+      RECAPTCHA_PRIVATE_KEY: fake
