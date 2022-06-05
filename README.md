@@ -1,6 +1,6 @@
 # Wagtail testing
 
-[![codecov](https://codecov.io/gh/kevinhowbrook/wagtail_testing/branch/main/graph/badge.svg?token=L1OJRHR09R)](https://codecov.io/gh/kevinhowbrook/wagtail_testing)
+[![codecov](https://codecov.io/gh/kevinhowbrook/wagtail_testing/branch/main/graph/badge.svg?token=L1OJRHR09R)](https://codecov.io/gh/kevinhowbrook/wagtail_testing)[![Main](https://github.com/kevinhowbrook/wagtail_testing/actions/workflows/main.yml/badge.svg)](https://github.com/kevinhowbrook/wagtail_testing/actions/workflows/main.yml)
 
 - [x] set up repo
 - [ ] add pre-commit
