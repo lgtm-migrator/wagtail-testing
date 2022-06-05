@@ -45,7 +45,7 @@ jobs:
         run: |
           . ./venv/bin/activate
           coverage erase
-          coverage run manage.py test
+          coverage run manage.py test --settings=wagtail_testing.settings.test
           coverage report
           coverage xml
       - name: "Upload coverage to Codecov"
