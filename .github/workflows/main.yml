@@ -32,6 +32,7 @@ jobs:
           . $HOME/.poetry/env
           python -m venv venv
           . ./venv/bin/activate
+          pwd
           poetry install
       - name: Check for missing migrations
         run: |
