@@ -7,9 +7,39 @@ authors = ["Kevin Howbrook <kevin.howbrook@torchbox.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 wagtail = "^3.0"
+coverage = "^6.4.1"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+# Linters etc.
+black = "22.3.0"
+flake8 = "3.8.3"
+isort = "5.7.0"
+pre-commit = "~2.11"
+
+[tool.black]
+line_length = 88
+target-version = ['py39']
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | __pycache__
+    | _build
+    | build
+    | dist
+    | docs
+    | venv
+    | node_modules
+  )/
+)
+'''
