@@ -8,6 +8,7 @@ authors = ["Kevin Howbrook <kevin.howbrook@torchbox.com>"]
 python = "^3.9"
 wagtail = "^3.0"
 coverage = "^6.4.1"
+wagtail-factories = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 
