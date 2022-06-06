@@ -15,6 +15,10 @@ SECURE_SSL_REDIRECT = False
 # Don't send the HSTS header
 SECURE_HSTS_SECONDS = 0
 
+
+# Use non-manifest storage so we don't need to run collectstatic
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
 # #############
 # Performance
 
