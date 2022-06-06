@@ -44,3 +44,4 @@ coverage.xml
 .env
 
 /database_dumps
+*sqlite3

@@ -7,8 +7,16 @@
 - [x] add wagtail and a basic site
 - [x] add ci to run tests (with pre-commit)
 - [x] add coverage and report
-- [ ] add pytest sugar?
-- [ ] add tox?
+- [ ] add standard page
+- [ ] add Factories
+
+## Testing
+
+- [ ] Streamfield validation
+- [ ] Page tree parent / child
+- [ ] Model admin forms and validation
+- [ ] posting data to pages
+- [ ] rendering data.
 
 ## Other
 
