@@ -11,8 +11,6 @@ import wagtail.images.models
 import wagtail.search.index
 
 
-
-
 class Migration(migrations.Migration):
 
     initial = True
