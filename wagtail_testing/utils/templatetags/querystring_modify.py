@@ -135,11 +135,10 @@ def querystring_modify(
 
         elif value is None:
             querydict.pop(key, None)
-        else:
-            if isinstance(value, (str, bytes)):
-                querydict[key] = value
-            elif hasattr(value, "__iter__"):
-                querydict.setlist(key, list(value))
+        elif isinstance(value, (str, bytes)):
+            querydict[key] = value
+        elif hasattr(value, "__iter__"):
+            querydict.setlist(key, list(value))
 
     clean_querydict(querydict, remove_blanks, remove_utm)
 
@@ -170,8 +169,7 @@ def clean_querydict(querydict, remove_blanks=False, remove_utm=True):
                 querydict.pop(key)
 
     for key, values in querydict.lists():
-        cleaned_values = [v for v in values if v not in remove_vals]
-        if cleaned_values:
+        if cleaned_values := [v for v in values if v not in remove_vals]:
             querydict.setlist(key, cleaned_values)
         else:
             del querydict[key]
