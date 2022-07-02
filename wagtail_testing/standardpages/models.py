@@ -10,7 +10,7 @@ from wagtail_testing.utils.models import BasePage
 
 
 class InformationPage(BasePage):
-    template = "patterns/pages/standardpages/information_page.html"
+    template = "standardpages/information_page.html"
 
     introduction = models.TextField(blank=True)
     body = StreamField(StoryBlock())

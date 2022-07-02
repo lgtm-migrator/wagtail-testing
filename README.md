@@ -12,11 +12,14 @@
 
 ## Testing
 
+- [ ] utils - link model validation and get tests individual
+- [ ] utils - when in page edit
 - [ ] Streamfield validation
 - [ ] Page tree parent / child
 - [ ] Model admin forms and validation
 - [ ] posting data to pages
 - [ ] rendering data.
+- [ ] Test image uploads
 
 ## Other
 

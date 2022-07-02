@@ -11,7 +11,7 @@ class ImageBlock(blocks.StructBlock):
 
     class Meta:
         icon = "image"
-        template = "patterns/molecules/streamfield/blocks/image_block.html"
+        template = "streamfield/blocks/image_block.html"
 
 
 class DocumentBlock(blocks.StructBlock):
@@ -20,7 +20,7 @@ class DocumentBlock(blocks.StructBlock):
 
     class Meta:
         icon = "doc-full-inverse"
-        template = "patterns/molecules/streamfield/blocks/document_block.html"
+        template = "streamfield/blocks/document_block.html"
 
 
 class QuoteBlock(blocks.StructBlock):
@@ -29,7 +29,7 @@ class QuoteBlock(blocks.StructBlock):
 
     class Meta:
         icon = "openquote"
-        template = "patterns/molecules/streamfield/blocks/quote_block.html"
+        template = "streamfield/blocks/quote_block.html"
 
 
 # Main streamfield block to be inherited by Pages
@@ -37,7 +37,7 @@ class StoryBlock(blocks.StreamBlock):
     heading = blocks.CharBlock(
         form_classname="full title",
         icon="title",
-        template="patterns/molecules/streamfield/blocks/heading_block.html",
+        template="streamfield/blocks/heading_block.html",
     )
     paragraph = blocks.RichTextBlock()
     image = ImageBlock()
@@ -45,9 +45,9 @@ class StoryBlock(blocks.StreamBlock):
     embed = EmbedBlock()
     call_to_action = SnippetChooserBlock(
         "utils.CallToActionSnippet",
-        template="patterns/molecules/streamfield/blocks/call_to_action_block.html",
+        template="streamfield/blocks/call_to_action_block.html",
     )
     document = DocumentBlock()
 
     class Meta:
-        template = "patterns/molecules/streamfield/stream_block.html"
+        template = "streamfield/stream_block.html"
