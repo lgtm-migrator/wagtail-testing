@@ -64,7 +64,7 @@ class TestInformationPageCreation(TestCase, WagtailTestUtils):
         )
 
     def _post(self, post_data):
-        response = self.client.post(
+        return self.client.post(
             reverse(
                 "wagtailadmin_pages:add",
                 # app, model, parent
@@ -72,7 +72,6 @@ class TestInformationPageCreation(TestCase, WagtailTestUtils):
             ),
             post_data,
         )
-        return response
 
     def test_can_create_standard_content_page(self):
         self._post(self.post_data)
